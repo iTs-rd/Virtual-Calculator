@@ -8,7 +8,7 @@
 In this project, I try to make a virtual calculator. When the code will execute it will use a webcam and show the video which it captures in addition to that it will also draw a virtual calculator on the output video. User needs to raise his hand and by using the index finger or middle finger or ring finger he/she click virtually on the calculator and can perform any operation he/she wants. the result will display on the display board in the top part of the calculator. It is recommended to use all your fingers for better performance but you can also try it with 3 or 4 fingers.
 
 <a href="#"><strong>Youtube video for demonstration</strong></a><br>
-<!-- <a href="#"><img src="data/thumbnail.png"></a> -->
+<a href="#"><img src="data/thumbnail.png"></a>
 
 
 <h3>Description of all files</h3>
@@ -19,19 +19,19 @@ It is a central file that uses other files function, output, etc, and makes the 
 
 <h4>addon_function.py</h4>
 
-It will contain all function which is used by index.py, use to organize the code
+It will contain all function which is used by index.py, use to organize the code.
 
 
 <h4>Set_HSV_values.py</h4>
 
 When this code will run 3 windows are open, One will show normal video of input, 2nd window will show B&W video, and 3rd window will show 7 trackbars, you can play with the first 6 trackbars to get a good B&W video of yours in which your hand is properly distinctable. When it has done then close it. <br>
-NOTE:- If you want to reset all values then click on the reset trackbar.
+<strong>NOTE:-</strong> If you want to reset all values then click on the reset trackbar.
 
 
 <h4>calc_size_position.py</h4>
 
-This file is used to adjust calculator position and size by using trackbars.
-<strong>Note:-</strong> Don't make a value of <strong>X</strong> less than 400 
+This file is used to adjust calculator position and size by using trackbars. <br>
+<strong>NOTE:-</strong> Don't make a value of <strong>X</strong> less than 400.
 
 
 <h4>Data Folder</h4>
@@ -63,13 +63,13 @@ values.txt -> It will store (x,y) coordinate if the top-left corner of calculat
 <h3>1.1 Installation</h3>
 
    
-1. Clone this repository
+1. Clone This Repository
    
 ```bash
 git clone https://github.com/iTs-rd/Virtual-Calculator.git
 ```
    
-2. Install the required packages
+2. Install The Required Packages
 ```bash
 cd hand-gesture
 pip install -r requirements.txt
@@ -77,7 +77,7 @@ pip install -r requirements.txt
 <strong>If above code doesn't work replace pip by pip3.</strong><br>
 It will install everything you need. If you have already installed some of the required packages it will skip that.
 
-<h3>1.2 Run program</h3>
+<h3>1.2 Run Program</h3>
 
 To run the program simply enter this line
 
@@ -88,7 +88,7 @@ python index.py
 When you run index.py it will open 2 windows one is of your normal live video and the other is small in size which shows a video of your right half part and also in binary form. If the smaller window will not removing your background properly or there is so much noise try to change your background by moving to another place or follow #1.3
 
 
-<h3>1.3 Check your present condition </h3>
+<h3>1.3 Check Your Present Condition </h3>
 
 First of all, You have to check your hand is properly detected or not. by entering this command
 
@@ -96,13 +96,13 @@ First of all, You have to check your hand is properly detected or not. by enteri
 python Set_HSV_values.py
 ```
 
-It will open 3 windows, One will show normal video of input, 2nd window will show B&W video, and 3rd window will show 7 trackbars, you can play with the first 6 trackbars to get a good B&W video of yours in which your hand is properly distinctable. When it has done then close it.
-<strong>Note:-</strong> If you wants to reset all values then click on reset trackbar.
+It will open 3 windows, One will show normal video of input, 2nd window will show B&W video, and 3rd window will show 7 trackbars, you can play with the first 6 trackbars to get a good B&W video of yours in which your hand is properly distinctable. When it has done then close it. <br>
+<strong>NOTE:-</strong> If you wants to reset all values then click on reset trackbar.
 
 <strong>If all done the program is ready to run</strong>
 
 
-<h3>1.4 costimize calculator position</h3>
+<h3>1.4 Costimize Calculator Position</h3>
 
 Enter this command
 
@@ -110,11 +110,11 @@ Enter this command
 python calc_size_position.py
 ```
 
-It will open 2 windows one is your normal live video with calculator drawn on it and another window will contain 5 trackbars to change position, size of calculator.
-<strong>Note:-</strong> Rest button is used to reset calculator position.
+It will open 2 windows one is your normal live video with calculator drawn on it and another window will contain 5 trackbars to change position, size of calculator. <br>
+<strong>NOTE:-</strong> Rest button is used to reset calculator position.
 
 
-<h3>summary</h3>
+<h3>Summary</h3>
 
 Run these code line by line
 
