@@ -38,9 +38,9 @@ This file is used to adjust calculator position and size by using trackbars. <b
 
 This folder contains all numerical values used by the program. By these values, I try to make my code a little bit dynamic.
 
-hsv_values.txt -> It will store the HSV value which is used to remove the background from the video which is a capture.
+<strong>hsv_values.txt -></strong> It will store the HSV value which is used to remove the background from the video which is a capture.
 
-values.txt -> It will store (x,y) coordinate if the top-left corner of calculator and height and width of a smallest block of the calculator.
+<strong>values.txt -></strong> It will store (x,y) coordinate if the top-left corner of calculator and height and width of a smallest block of the calculator.
 
 
 
