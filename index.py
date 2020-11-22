@@ -12,12 +12,13 @@ h = values[2]
 w = values[3]
 
 # VARIABLES
-ans = ""
-ab = ""
-a, b = -1, -1
-approx = 0
-prev_approx = 0
+ans = ""                        # STORE RESULT OF CALCULATION TO DISPLAY
+ab = ""                         # STORE POSITION AND TYPE OF KEY PRESSED
+a, b = -1, -1                   # STORE COORDINATE OF POINT WHERE KEY PRESS AFTER THAT BUTTON DETAIL
+approx = 0                      # STORE CORDINATE OF SHARPE POINT ON CONVEXHULL
+prev_approx = 0                 # SAME AS approx BUT STORE POINTS OF PREVIOUS FRAME FOR COMPRESION
 
+# IF CAMERA IS OPEN
 while cap.isOpened():
 
     # READ AND RESIZE FRAME
@@ -25,12 +26,13 @@ while cap.isOpened():
     frame = cv2.flip(frame, 1)
     frame = cv2.resize(frame, (800, 600))
 
-    # REGION OF INTEREST
+    # EXTRACT REGION OF INTEREST
     roi = frame[:, 400:]
 
     # CONVERT FRAME TO B/W
     thres = my.thresold(roi)
 
+    # TO PRODUCE EFECT IF ANY KEY PRESSED
     if len(ab):
         a = int(ab[0])
         b = int(ab[1])
@@ -56,6 +58,10 @@ while cap.isOpened():
         hull = cv2.convexHull(contour)
         approx = cv2.approxPolyDP(hull, 0.01 * cv2.arcLength(hull, True), True)
 
+        # print(contour)
+        # print(hull)
+        # print(approx)
+
         # DRAW APPROX POLYGON OF HAND
         # cv2.drawContours(roi, [approx], 0, (0, 0, 255))
 
@@ -69,6 +75,7 @@ while cap.isOpened():
         if b < 590:
             ans, ab = my.press_key(ans, a, b)
             # print(ans)
+            # TO CLOSE THE PROGRAM
             if ans == "quit":
                 cap.release()
 
@@ -96,10 +103,14 @@ while cap.isOpened():
     # WRITE ON DISPLAY BOARD
     cv2.putText(frame, ans1, (x + int(w * 0.15), y + int(h * 0.7)), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
-    # frame = cv2.resize(frame, (800, 600))
+    # RESIZE ROI FOR DISPLAY
     thres = cv2.resize(thres, (120, 120))
+
+    # SHOW ALL FRAMES
     cv2.imshow("frame", frame)
     cv2.imshow("roi", thres)
+
+    # WAIT FOR ESC KEY TO BE PRESSED
     if cv2.waitKey(1) == 27:
         break
 
