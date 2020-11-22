@@ -54,6 +54,8 @@ This folder contains all numerical values used by the program. By these values, 
 - OpenCV-python
 - Numpy
 ```
+
+Numpy is only use to save and read values of some array
 <br>
 
 
