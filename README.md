@@ -73,7 +73,7 @@ git clone https://github.com/iTs-rd/Virtual-Calculator.git
    
 2. Install The Required Packages
 ```bash
-cd hand-gesture
+cd Virtual-Calculator
 pip install -r requirements.txt
 ```
 <strong>If above code doesn't work replace pip by pip3.</strong><br>
@@ -121,8 +121,8 @@ It will open 2 windows one is your normal live video with calculator drawn on it
 Run these code line by line
 
 ```bash
-git clone https://github.com/iTs-rd/hand-gesture.git
-cd hand-gesture
+git clone https://github.com/iTs-rd/Virtual-Calculator.git
+cd Virtual-Calculator
 pip install -r requirements.txt
 python index.py
 ```
