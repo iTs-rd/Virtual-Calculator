@@ -12,11 +12,11 @@ h = values[2]
 w = values[3]
 
 # VARIABLES
-ans = ""                        # STORE RESULT OF CALCULATION TO DISPLAY
-ab = ""                         # STORE POSITION AND TYPE OF KEY PRESSED
-a, b = -1, -1                   # STORE COORDINATE OF POINT WHERE KEY PRESS AFTER THAT BUTTON DETAIL
-approx = 0                      # STORE CORDINATE OF SHARPE POINT ON CONVEXHULL
-prev_approx = 0                 # SAME AS approx BUT STORE POINTS OF PREVIOUS FRAME FOR COMPRESION
+ans = ""                # STORE RESULT OF CALCULATION TO DISPLAY
+ab = ""                 # STORE POSITION AND TYPE OF KEY PRESSED
+a, b = -1, -1           # STORE COORDINATE OF POINT WHERE KEY PRESS AFTER THAT BUTTON DETAIL
+approx = 0              # STORE CORDINATE OF SHARPE POINT ON CONVEXHULL
+prev_approx = 0         # SAME AS approx BUT STORE POINTS OF PREVIOUS FRAME FOR COMPRESION
 
 # IF CAMERA IS OPEN
 while cap.isOpened():
@@ -27,7 +27,7 @@ while cap.isOpened():
     frame = cv2.resize(frame, (800, 600))
 
     # EXTRACT REGION OF INTEREST
-    roi = frame[:, 400:]
+    roi = frame[:500, 400:]
 
     # CONVERT FRAME TO B/W
     thres = my.thresold(roi)
@@ -36,14 +36,16 @@ while cap.isOpened():
     if len(ab):
         a = int(ab[0])
         b = int(ab[1])
-        s = int(ab[2])
         clr = (0, 190, 0)
-        if s == 0:
-            cv2.rectangle(frame, (x + w * a, y + h * (2 + b)), (x + w * (a + 1), y + h * (3 + b)), clr, -1)
-        elif s == 1:
+        if a == 0 and b == 5:
             cv2.rectangle(frame, (x + w * a, y + h * (2 + b)), (x + w * (a + 2), y + h * (3 + b)), clr, -1)
-        else:
+        elif a == 3 and b == 2:
             cv2.rectangle(frame, (x + w * a, y + h * (2 + b)), (x + w * (a + 1), y + h * (4 + b)), clr, -1)
+        elif a == 3 and b == 4:
+            cv2.rectangle(frame, (x + w * a, y + h * (2 + b)), (x + w * (a + 1), y + h * (4 + b)), clr, -1)
+        else:
+            cv2.rectangle(frame, (x + w * a, y + h * (2 + b)), (x + w * (a + 1), y + h * (3 + b)), clr, -1)
+
         ab = ""
 
     # DRAW CALC
@@ -70,10 +72,10 @@ while cap.isOpened():
 
         # CHECK FOR CLICK
         a, b = my.check_event(approx, prev_approx)
-
         # IF CLICK UPDATE ANSWER FOR DISPLAY BOARD
-        if b < 590:
+        if b < 490:
             ans, ab = my.press_key(ans, a, b)
+            print(ab)
             # print(ans)
             # TO CLOSE THE PROGRAM
             if ans == "quit":

@@ -26,7 +26,8 @@ cv2.createTrackbar('RESET','trackbars',0,1,nothing)
 while cap.isOpened():
     #RESET VALUES OF HSV ARRAY
     if cv2.getTrackbarPos('RESET','trackbars')==1:
-        hsv_values = np.array([[0,48,80], [20, 255, 255]])
+        # hsv_values = np.array([[0,48,80], [20, 255, 255]])
+        hsv_values = np.array([[0,90,23], [20, 255, 255]])
         np.savetxt('data/hsv_values.txt',hsv_values)
         cv2.waitKey(70)
         break

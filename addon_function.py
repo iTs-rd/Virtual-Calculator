@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 
+
 # TO REMOVE BACKGROUNG AND CONVERT IMAGE IN BINARY FORM
 def thresold(roi):
     # READ HSV VALUES FROM FILE
@@ -44,12 +45,12 @@ def draw_calc(frame, a, b):
 
     # PUT TEXT IN EVERY CELL
     cv2.putText(frame, "C", (x + a, y + 3 * h + b), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 0, 255), 2)
-    cv2.putText(frame, "^", (x + w + a, y + 3 * h + b-10), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 0, 255), 2)
-    cv2.putText(frame, "<-", (x + 2 * w + a-6, y + 3 * h + b), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
-    cv2.putText(frame, "OFF", (x + 3 * w + a-6, y + 3 * h + b), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2)
-    cv2.putText(frame, "%", (x + 0 * w + a, y + 4 * h + b-5), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
-    cv2.putText(frame, "%", (x + 0 * w + a, y + 4 * h + b-3), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
-    cv2.putText(frame, "/", (x + 1 * w + a, y + 4 * h + b-5), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 0, 255), 2)
+    cv2.putText(frame, "^", (x + w + a, y + 3 * h + b - 10), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 0, 255), 2)
+    cv2.putText(frame, "<-", (x + 2 * w + a - 6, y + 3 * h + b), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+    cv2.putText(frame, "OFF", (x + 3 * w + a - 6, y + 3 * h + b), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2)
+    cv2.putText(frame, "%", (x + 0 * w + a, y + 4 * h + b - 5), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+    cv2.putText(frame, "%", (x + 0 * w + a, y + 4 * h + b - 3), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+    cv2.putText(frame, "/", (x + 1 * w + a, y + 4 * h + b - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 0, 255), 2)
     cv2.putText(frame, "*", (x + 2 * w + a, y + 4 * h + b), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 0, 255), 2)
     cv2.putText(frame, "-", (x + 3 * w + a, y + 4 * h + b), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 0, 255), 2)
     cv2.putText(frame, "7", (x + 0 * w + a, y + 5 * h + b), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 0, 255), 2)
@@ -73,7 +74,7 @@ def draw_calc(frame, a, b):
 def detect_finger(roi, arr):
     if 5 <= arr.shape[0] <= 7:
         for a in arr:
-            if a[0, 1] < 590:
+            if a[0, 1] < 480:
                 cv2.circle(roi, (a[0, 0], a[0, 1]), 5, (0, 255, 0), 2)
         return roi
 
@@ -94,6 +95,7 @@ def check_event(approx, prev_approx):
         return 0, 600
     else:
         return 0, 600
+
 
 # DO CALCULATION ON ANSWER AND PRODUCE RESULT
 def calc(ans):
@@ -156,89 +158,89 @@ def press_key(ans, a, b):
         b = int(b)
         if a == 0 and b == 0:
             ans = ""
-            ab = "000"
+            ab = "00"
         elif a == 1 and b == 0:
             ans = calc(ans)
             ans += "^"
-            ab = "100"
+            ab = "10"
         elif a == 2 and b == 0:
             ans = ans[:len(ans) - 1]
-            ab = "200"
+            ab = "20"
 
         elif a == 3 and b == 0:
             ans = "quit"
-            ab = "300"
+            ab = "30"
 
         elif a == 0 and b == 1:
             ans = calc(ans)
             ans += "%"
-            ab = "010"
+            ab = "01"
         elif a == 1 and b == 1:
             ans = calc(ans)
             ans += "/"
-            ab = "110"
+            ab = "11"
         elif a == 2 and b == 1:
             ans = calc(ans)
             ans += "*"
-            ab = "210"
+            ab = "21"
         elif a == 3 and b == 1:
             ans = calc(ans)
             ans += "-"
-            ab = "310"
+            ab = "31"
 
         elif a == 0 and b == 2:
             ans += "7"
-            ab = "020"
+            ab = "02"
         elif a == 1 and b == 2:
             ans += "8"
-            ab = "120"
+            ab = "12"
         elif a == 2 and b == 2:
             ans += "9"
-            ab = "220"
+            ab = "22"
         elif a == 3 and b == 2:
             ans = calc(ans)
             ans += "+"
-            ab = "322"
+            ab = "32"
 
         elif a == 0 and b == 3:
             ans += "4"
-            ab = "030"
+            ab = "03"
         elif a == 1 and b == 3:
             ans += "5"
-            ab = "130"
+            ab = "13"
         elif a == 2 and b == 3:
             ans += "6"
-            ab = "230"
+            ab = "23"
         elif a == 3 and b == 3:
             ans = calc(ans)
             ans += "+"
-            ab = "332"
+            ab = "32"
 
         elif a == 0 and b == 4:
             ans += "1"
-            ab = "040"
+            ab = "04"
         elif a == 1 and b == 4:
             ans += "2"
-            ab = "140"
+            ab = "14"
         elif a == 2 and b == 4:
             ans += "3"
-            ab = "240"
+            ab = "24"
         elif a == 3 and b == 4:
             ans = calc(ans)
-            ab = "342"
+            ab = "34"
 
         elif a == 0 and b == 5:
             ans += "0"
-            ab = "051"
+            ab = "05"
         elif a == 1 and b == 5:
             ans += "0"
-            ab = "151"
+            ab = "05"
         elif a == 2 and b == 5:
             ans += "."
-            ab = "250"
+            ab = "25"
         elif a == 3 and b == 5:
             ans = calc(ans)
-            ab = "352"
+            ab = "34"
         else:
             pass
 
