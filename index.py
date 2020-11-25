@@ -60,7 +60,7 @@ while cap.isOpened():
 
         # print(contour)
         # print(hull)
-        # print(approx)
+        print(approx)
 
         # DRAW APPROX POLYGON OF HAND
         # cv2.drawContours(roi, [approx], 0, (0, 0, 255))

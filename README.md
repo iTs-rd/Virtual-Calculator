@@ -5,7 +5,7 @@
 <strong>If you are curious about how Tony Stark (Iron Man) virtual computer work then this project is a little approach toward it, I hope you will enjoy it.
  </strong>
 
-In this project, I try to make a virtual calculator. When the code will execute it will use a webcam and show the video which it captures in addition to that it will also draw a virtual calculator on the output video. User needs to raise his hand and by using the index finger or middle finger or ring finger he/she click virtually on the calculator and can perform any operation he/she wants. the result will display on the display board in the top part of the calculator. It is recommended to use all your fingers for better performance but you can also try it with 3 or 4 fingers.
+In this project, I make a virtual calculator. When the code will execute it will use a webcam input and show the video which it captures in addition to that it will also draw a virtual calculator on the output video. User needs to raise his hand and by using the index finger or middle finger or ring finger he/she click virtually on the calculator and can perform any operation he/she wants. the result will display on the display board in the top part of the calculator. It is recommended to use all your fingers for better performance but you can also try it with 3 or 4 fingers.
 
 <a href="#"><strong>Youtube video for demonstration</strong></a><br>
 <a href="#"><img src="data/thumbnail.png"></a>
@@ -19,12 +19,12 @@ It is a central file that uses other files function, output, etc, and makes the 
 
 <h4>addon_function.py</h4>
 
-It will contain all function which is used by index.py, use to organize the code.
+It will contain all function which is used by index.py. It is use to organize the code.
 
 
 <h4>Set_HSV_values.py</h4>
 
-When this code will run 3 windows are open, One will show normal video of input, 2nd window will show B&W video, and 3rd window will show 7 trackbars, you can play with the first 6 trackbars to get a good B&W video of yours in which your hand is properly distinctable. When it has done then close it. <br>
+When this code will run 3 windows are open, One will show normal video of input, 2nd window will show binary video, and 3rd window will show 7 trackbars, you can play with the first 6 trackbars to get a good binary video of yours in which your hand is properly distinctable. When it has done then close it. <br>
 <strong>NOTE:-</strong> If you want to reset all values then click on the reset trackbar.
 
 
