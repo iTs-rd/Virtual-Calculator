@@ -24,6 +24,7 @@ while cap.isOpened():
     # READ AND RESIZE FRAME
     _, frame = cap.read()
     frame = cv2.flip(frame, 1)
+    frame2=cv2.resize(frame,(300,225))
     frame = cv2.resize(frame, (800, 600))
 
     # EXTRACT REGION OF INTEREST
@@ -109,7 +110,8 @@ while cap.isOpened():
     thres = cv2.resize(thres, (120, 120))
 
     # SHOW ALL FRAMES
-    cv2.imshow("frame", frame)
+    cv2.imshow("frame", frame2)
+    cv2.imshow("final", frame)
     cv2.imshow("roi", thres)
 
     # WAIT FOR ESC KEY TO BE PRESSED
