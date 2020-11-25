@@ -126,6 +126,8 @@ pip install -r requirements.txt
 python index.py
 ```
 
+The idea for this project is from a youtube video.
+
 <h3>Contacts</h3>
 Email- Rudresh.gupta.che19@iitbhu.ac.in <br>
 Linkedin- https://www.linkedin.com/in/rudresh-gupta-b87a84190
