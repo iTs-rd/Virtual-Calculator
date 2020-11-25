@@ -50,7 +50,6 @@ This folder contains all numerical values used by the program. By these values, 
 <h3>Required Packages</h3>
 
 ```bash
-- Python
 - OpenCV-python
 - Numpy
 ```
