@@ -36,7 +36,7 @@ while cap.isOpened():
 
     # FOR RESET
     if cv2.getTrackbarPos('reset', 'trackbars') == 1:
-        x, y, h, w = 485, 35, 50, 65
+        x, y, h, w = 485, 20, 50, 65
 
     # cv2.line(frame,(r,0),(r,600),(0,0,255))
 

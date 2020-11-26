@@ -125,7 +125,7 @@ cd Virtual-Calculator
 pip install -r requirements.txt
 python index.py
 ```
-
+<br>
 The idea for this project is from a youtube video.
 
 <h3>Contacts</h3>

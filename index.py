@@ -28,7 +28,7 @@ while cap.isOpened():
     frame = cv2.resize(frame, (800, 600))
 
     # EXTRACT REGION OF INTEREST
-    roi = frame[:500, 400:]
+    roi = frame[:550, 400:]
 
     # CONVERT FRAME TO B/W
     thres = my.thresold(roi)
